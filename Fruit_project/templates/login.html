@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - login &amp; signup form</title>
+  <link rel="stylesheet" href="{% static 'css/logstyle.css' %}">
+        <script src="{% static 'js/script.min.js' %}"></script>
+          <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+  <div class="title-text">
+    <div class="title login">Login Form</div>
+  </div>
+    <div class="form-inner">
+      <form action="log" class="login" method="post">
+        {% csrf_token %}
+        <div class="field">
+          <input type="text" placeholder="username" id="use" name="use" required>
+        </div>
+        <div class="field">
+          <input type="password" placeholder="Password"  id="pas" name="pas" required>
+        </div>
+        <div class="pass-link"><a href="#">Forgot password?</a></div>
+        <div class="field btn">
+          <div class="btn-layer"></div>
+          <input type="submit" value="Login">
+        </div>
+        <div class="signup-link">Not a member? <a href="{% url 'shop:sign' %}">Signup now</a></div>
+      </form>
+    </div>
+</div>
+<!-- partial -->
+
+</body>
+</html>

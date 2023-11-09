@@ -1,0 +1,40 @@
+{% load static %}
+
+<style>
+  /* Add animation keyframes */
+  @keyframes animateCharacter {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Apply the animation to the heading */
+  .animate-character {
+    animation: animateCharacter 1.5s ease-in-out;
+    color: orange;
+  }
+
+  /* Center the content vertically */
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+
+  /* Add spacing between the image and the heading */
+  .logo-img {
+    margin-right: 20px;
+  }
+</style>
+
+<div class="center-content">
+  <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo-img" style="max-width: 200px; height: auto;">
+  <h3 class="animate-character" style="font-size: 80px; font-color: red;"><b>Tropiko</b></h3>
+</div>

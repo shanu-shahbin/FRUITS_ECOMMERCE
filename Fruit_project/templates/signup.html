@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - login signup form</title>
+  <link rel="stylesheet" href="{% static 'css/logstyle.css' %}">
+        <script src="{% static 'js/script.min.js' %}"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+{% csrf_token %}
+<div class="wrapper">
+  <div class="title-text">
+    <div class="title login">SignUp Form</div>
+  </div>
+    <div class="form-inner">
+      <form action="sign" class="sign" method="post">
+        {% csrf_token %}
+        <div class="field">
+          <input type="text" placeholder="username" id="user" name="username" required>
+        </div>
+        <div class="field">
+          <input type="password" placeholder="Password" id="pass" name="password" required>
+        </div>
+        <div class="field btn">
+          <div class="btn-layer"></div>
+          <input type="submit" value="signup">
+        </div>
+      </form>
+    </div>
+  </div>
+<!-- partial -->
+</body>
+</html>

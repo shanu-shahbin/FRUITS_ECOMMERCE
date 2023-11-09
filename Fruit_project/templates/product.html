@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+        {{ product.description|truncatewords:155 }}
+{% endblock %}
+
+{% block title %}
+    {% if category %}
+        {{ product.name }} - ABC STORE
+
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="my_product">
+  <div class="mx_auto">
+    <p class="my_title"></p>
+  </div>
+</div>
+<div class="container" style="background-color: #fff;">
+<br>
+
+
+<div class="row" style="background-color: #fff;">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+    <div style="min-width:18rem">
+      <img src="{{product.image.url}}" alt="{{product.name}}" width="220;" height="200;" >
+    </div>
+  </div>
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6" style="background-color: #fff;">
+      <div>
+      <h1 class="my_prod_title" style="color:red;"><b>{{product.name}}</b></h1>
+      <p>${{product.price}}</p>
+      <p class="my_title">product Description</p>
+      <p class="text-justify my_prod_text">{{product.description}}</p>
+      {% if product.stock <= 0 %}
+      <p class="text-justify my_prod_text"><b>out of stock</b></p>
+      {% else %}
+      {% endif %}
+        <br>
+        <br>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+  This is the CART page. Proceed to your review and items.
+{% endblock %}
+
+{% block title %}
+  Cart - ABC Company Pvt Ltd
+{% endblock %}
+
+{% block content %}
+<style>
+  /* Add styling for the page title */
+  .page-title {
+    font-size: 38px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* Add styling for contact details */
+  .contact-info {
+    font-size: 22px;
+    color: #fff;
+    margin: 20px;
+  }
+
+  /* Add styling for contact methods */
+  .contact-method {
+    margin-top: 10px;
+  }
+
+  /* Style the working hours */
+  .working-hours {
+    font-weight: bold;
+  }
+
+  /* Style the address */
+  .address {
+    font-weight: bold;
+  }
+</style>
+
+<div class="container">
+  <h1 class="page-title">Contact Us</h1>
+
+  <div class="contact-info">
+    <p class="text-justify">WhatsApp us: <a class="contact-method" href="tel:7566230000">9746558679</a></p>
+    <p class="text-justify">Have questions, feedback, or just want to chat about fruits? We're here to help. Get in touch with our friendly customer support team. Your satisfaction is our priority.</p>
+
+    <div class="contact-method">
+      <p class="working-hours">Customer Support</p>
+      <p>Email: <a href="mailto:support@Tropiko.com">support@Tropiko.com</a></p>
+      <p>Phone: <a class="contact-method" href="tel:1234567890">123-456-7890</a></p>
+      <p class="working-hours">Working Hours: Monday to Friday, 9:00 AM - 5:00 PM (local time)</p>
+    </div>
+
+    <div class="contact-method">
+      <p class="address">Visit Us</p>
+      <p>If you're in the neighborhood, feel free to visit our office. We'd love to meet you in person!</p>
+      <p class="address">Address</p>
+      <p>Trapiko Street<br>City, State, ZIP Code</p>
+    </div>
+
+    <div class="contact-method">
+      <p>Connect with Us</p>
+      <p>Join our fruit-loving community on social media for the latest updates, delicious recipes, and exclusive offers.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

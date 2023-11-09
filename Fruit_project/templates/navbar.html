@@ -1,0 +1,14 @@
+<div class="topnav" style="color: #fff;">
+    <a class="active" href="{% url 'shop:allprodCat' %}" style="color: black;"><i class="fa-solid fa-house"></i>HOME</a>
+    {% for cat in links %}
+        <a href="{{ cat.get_url }}" style="text-transform: uppercase;">{{ cat.name }}</a>
+    {% endfor %}
+<!--    #-->
+    <a href="{% url 'cart:cart_details' %}" style="color: red"><i class="fa-solid fa-cart-shopping"></i>{{ item_count }}</a>
+    <a href="{% url 'shop:about' %}">ABOUT</a>
+    <a href="{% url 'shop:contact' %}">CONTACT</a>
+    <form action="{% url 'search_app:search' %}" method="post" class="search-form">
+        {% csrf_token %}
+        <input type="text" placeholder="Search.." name="q" class="search-input">
+    </form>
+</div>

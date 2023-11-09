@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+        {{ category.description|truncatewords:155 }}
+    {% else %}
+        Welcome to Tropiko store where you can buys different items.....
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if category %}
+        {{ category.name }} - ABC STORE
+    {% else %}
+        See our New collections ABC store
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% if category %}
+<!--<div>-->
+
+
+
+<div class="container">
+    <div class="row mx_auto">
+        {% for sort in data %}
+        <div class="my_bottom_margi col-9 col-sm-12 col-md-4  xol-lg-4">
+            <div class="card text-center" style="min-width:18rem;">
+                <a href="{{sort.get_url}}"><img class="card-img-top my_image" src="{{sort.image.url}}" alt="{{product.name}}"></a>
+            <div class="card-body">
+                <h4>{{sort.name}}</h4>
+                <p>{{sort.price}}</p>
+                <a class="btn btn-success" href="{% url 'cart:add_cart' sort.id %}">add to cart</a>
+
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+<div>
+<div>
+        <div class="row my_row_class">
+            <div class="mx-auto">
+
+
+            <p><a href="{% url 'shop:allprodCat' %}">product collections</a></p>
+        </div>
+        </div>
+</div>
+{% endif %}
+<div class="mx_auto">
+    {% if category %}
+    <center>
+        <img class=my_image" src="{{category.image.url}}" width="500" height="300">
+    </center>
+</div>
+    <br>
+<div>
+        <h1 class="text-center my_title" style="color:red">{{category.name}}</h1>
+        <p class="text-justify" style="font-size:20px;letter-spacing : .1em;">{{category.description}}</p>
+</div>
+    {% else %}
+
+<br>
+<div style="width: 100vw;
+            height: 100vh;
+            position: relative;
+            font-family: Nunito;
+            box-sizing: border-box;
+            padding: 30px;
+            background-color: #d11616;">
+    <center>
+        <div style="width: 100%;
+                    height: 100%;
+                    min-height: 390px;
+                    box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
+                    background-color: black;">
+            <p class="text-justify" style="font-size: 28px; color: white; padding-top: 20px;">
+                Welcome to Tropiko.com
+
+ we bring the vibrant, natural goodness of fresh fruits right to your fingertips. We are your one-stop destination for a bountiful selection of the juiciest, ripest, and most succulent fruits available. We work directly with local farms and orchards to source the finest fruits. Our commitment to quality means you'll always receive the freshest and most flavorful fruits.Say goodbye to crowded markets and long checkout lines. With FreshFruitShop.com, you can order your favorite fruits from the comfort of your home or on the go.From the classic favorites like apples, bananas, and oranges to exotic delights such as dragon fruit and lychee, our extensive selection caters to every taste bud.Fruits are nature's powerhouses of essential vitamins and nutrients. With FreshFruitShop.com, you can easily incorporate more fruits into your daily diet, promoting a healthier and happier lifestyle. just an online fruit store; it's a celebration of nature's bounty. We believe that fresh fruits are the foundation of a well-balanced diet and a happier, healthier life. Discover a world of flavors, colors, and nutrition with each visit to our website.
+            </p>
+        </div>
+    </center>
+</div>
+
+<br>
+{% include 'slidebar.html' %}
+
+    <br>
+    {% endif %}
+        <div class="text-center" style="color: orange;text-transform:uppercase;font-size:50px;font-family:Oswald;"><b><h2 style="text-decoration-color:green;text-decoration-thickness:1px;"><b>Best selling items</b></h2></b></div><br>
+
+    <div class="row mx_auto">
+        {% for product in products %}
+        <div class="my_bottom_margi col-9 col-sm-9 col-md-6  col-lg-3">
+            <div class="card text-center card border-success" style="min-width:8rem;">
+                <a href="{{product.get_url}}"><img class="card-img-top my_image" src="{{product.image.url}}" style="width:200px;height:170px" alt="{{product.name}}"></a>
+            <div class="card-body">
+                <h4>{{product.name}}</h4>
+                <p style="color:red;">MRP:{{product.price}}</p>
+                <a class="btn btn-success" href="{% url 'cart:add_cart' product.id %}">add to cart</a>
+
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <center>{% include 'paginator.html' with page=products %}
+    </center>
+    <br>
+</div>
+{% endblock %}
