@@ -46,7 +46,7 @@
             <div class="mx-auto">
 
 
-            <p><a href="{% url 'shop:allprodCat' %}">product collections</a></p>
+            <p><a href="{% url 'shop:allprodCat' %}" style="color: blue; font-size:25px">product collections</a></p>
         </div>
         </div>
 </div>
@@ -59,8 +59,8 @@
 </div>
     <br>
 <div>
-        <h1 class="text-center my_title" style="color:red">{{category.name}}</h1>
-        <p class="text-justify" style="font-size:20px;letter-spacing : .1em;">{{category.description}}</p>
+        <h1 class="text-center my_title" style="color: white; font-size:25px">{{category.name}}</h1>
+        <p class="text-justify" style="font-size:20px;letter-spacing : .1em; color: white">{{category.description}}</p>
 </div>
     {% else %}
 
@@ -94,9 +94,9 @@
     {% endif %}
         <div class="text-center" style="color: orange;text-transform:uppercase;font-size:50px;font-family:Oswald;"><b><h2 style="text-decoration-color:green;text-decoration-thickness:1px;"><b>Best selling items</b></h2></b></div><br>
 
-    <div class="row mx_auto">
+    <div class="row mx_auto" >
         {% for product in products %}
-        <div class="my_bottom_margi col-9 col-sm-9 col-md-6  col-lg-3">
+        <div class="my_bottom_margi col-9 col-sm-9 col-md-6  col-lg-3" style="margin-bottom: 30px;">
             <div class="card text-center card border-success" style="min-width:8rem;">
                 <a href="{{product.get_url}}"><img class="card-img-top my_image" src="{{product.image.url}}" style="width:200px;height:170px" alt="{{product.name}}"></a>
             <div class="card-body">
